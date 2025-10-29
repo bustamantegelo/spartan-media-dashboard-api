@@ -10,7 +10,7 @@ Make sure you have installed:
 
 - [Node.js](https://nodejs.org) (v18+ recommended)
 - npm (comes with Node)
-- PostgreSQL (running locally)
+- google API credentials for Google Sheets API
 - VS Code or another editor
 
 ---
