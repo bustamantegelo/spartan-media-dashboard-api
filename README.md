@@ -1,6 +1,6 @@
-# PaceNPixels Backend
+# Spartan Media Dashboard Backend
 
-A backend system built using **Node.js**, **Express**, **TypeScript**, **Prisma**, and **PostgreSQL**.
+A backend system built using **Node.js**, **Express**, **TypeScript**, and **Google Sheets API**.
 
 ---
 
@@ -28,52 +28,10 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/eventdb"
-```
-
-
----
-
-## 4. PostgreSQL Database
-
-### Option A: via terminal
-
-```bash
-psql -U postgres
-CREATE DATABASE eventdb;
-```
-
-### Option B: via pgAdmin
-
-1. Open **pgAdmin**
-2. Right-click on Databases → Create → Database → Name it `eventdb`
-
----
-
-## 5. Prisma Setup
-
-Run the following:
-
-```bash
-npx prisma generate
-npx prisma migrate dev --name init
-```
-
----
-
-## 6. Seed the Database
-
-```bash
-npm run seed
-```
-
-Ensure this exists in your `package.json`:
-
-```json
-"scripts": {
-  "dev": "ts-node-dev src/server.ts",
-  "seed": "ts-node prisma/seed.ts"
-}
+GOOGLE_PRIVATE_KEY=""
+GOOGLE_CLIENT_EMAIL=""
+GOOGLE_SHEET_ID=""
+PORT=3001
 ```
 
 ---
@@ -84,7 +42,7 @@ Ensure this exists in your `package.json`:
 npm run dev
 ```
 
-Server will run on: `http://localhost:3000`
+Server will run on: `http://localhost:3001`
 
 ---
 
@@ -98,19 +56,4 @@ node_modules/
 dist/
 *.log
 *.tsbuildinfo
-prisma/dev.db
 ```
-
----
-
-## 9. Troubleshooting
-
-- If Prisma client errors:  
-  ```bash
-  npx prisma generate
-  ```
-
-- If DB error:  
-  Ensure PostgreSQL is running and `.env` is configured.
-
----
