@@ -15,8 +15,11 @@ export const getPhotoData = async (req: Request, res: Response) => {
 
       return data;
     });
+    const formattedResponse = response.reduce((acc, item) => {
+      return { ...acc, ...item };
+    }, {});
 
-    res.status(200).json(response);
+    res.status(200).json(formattedResponse);
   } catch (error) {
     console.error('Error fetching photo data:', error);
     res.status(500).json({ error: 'Failed to fetch photo data' });
